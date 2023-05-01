@@ -18,7 +18,13 @@ def test_drop():
         column="col2",
         X=X,
     )
+    print(action)
+    print(X)
 
+    X = action.run(
+        column="col1",
+        X=X,
+    )
     print(X)
 
 
@@ -39,5 +45,13 @@ def test_apply_sub():
         X2=X2,
         func=func,
     )
+    print(action)
+    print(X)
 
+    func = np.sqrt
+    X = action.run(
+        X1=X1,
+        X2=X2,
+        func=func,
+    )
     print(X)

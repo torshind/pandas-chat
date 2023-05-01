@@ -16,6 +16,7 @@ class Action:
 
         self._code = None
         self._module = None
+        self._function = None
 
     def create_and_run(
         self,
@@ -32,9 +33,14 @@ class Action:
             library=library,
             **kwargs,
         )
-        print(self._code)
+
         self._module = import_code(self._code)
+        self._function = getmembers(self._module, isfunction)[0][1]
 
-        functions_list = getmembers(self._module, isfunction)
+        return self.run(**kwargs)
 
-        return functions_list[0][1](**kwargs)
+    def run(self, **kwargs):
+        return self._function(**kwargs)
+
+    def __str__(self):
+        return self._code

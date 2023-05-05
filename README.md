@@ -30,7 +30,7 @@ X = action.create_and_run(
     X2=X2,
     func=func,
 )
-print(action._code)
+print(action)
 ```
 ### Output
 ```

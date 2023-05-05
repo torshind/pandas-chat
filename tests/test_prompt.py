@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-from pandas_ai.action import Action
+from pandas_chat.action import Action
 
 
 def test_drop():

@@ -17,7 +17,7 @@ except ImportError:
 
 setup(
     name="pandas-chat",
-    version="0.0.2",
+    version="0.0.3",
     description="pandas-ai is a python library that uses ChatGPT prompts \
         to analyze and process pandas data in a conversational way.",
     long_description=long_description,

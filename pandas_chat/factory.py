@@ -1,6 +1,9 @@
 from typing import Any, Dict
 
 import openai
+from hugchat import hugchat
+
+from .utils import extract_code
 
 
 def call_api(
@@ -26,14 +29,6 @@ don't include any explanations in your reply, returning only python code.
     if api == "openai":
         openai.api_key = api_key
 
-        # reply = openai.Completion.create(
-        #     model="text-davinci-002",
-        #     prompt=prompt,
-        #     max_tokens=64,
-        #     temperature=0.5,
-        #     **params,
-        # )
-
         messages = [{"role": "user", "content": prompt}]
         reply = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
@@ -41,5 +36,13 @@ don't include any explanations in your reply, returning only python code.
             temperature=0,
             **params,
         )
-        return reply.choices[0].message["content"]
-
+        return extract_code(reply.choices[0].message["content"])
+    elif api == "hugchat":
+        chatbot = hugchat.ChatBot()
+        return extract_code(
+            chatbot.chat(
+                text=prompt,
+                temperature=1e-6,
+                **params,
+            )
+        )

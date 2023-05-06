@@ -1,11 +1,16 @@
 # pandas-chat
-pandas-chat is a python library that uses ChatGPT prompts to analyze and process pandas data in a conversational way.
+pandas-chat is a python library that uses LLMs prompts to analyze and process pandas data in a conversational way.
 
 # Installation
 You can install pandas-chat using pip:
 ```
 pip install pandas-chat
 ```
+
+# LLMs supported
+`api="openai"`
+
+`api="hugchat"`
 # Usage example
 ## Creation
 ### Input

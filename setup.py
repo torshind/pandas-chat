@@ -21,6 +21,7 @@ setup(
     description="pandas-ai is a python library that uses ChatGPT prompts \
         to analyze and process pandas data in a conversational way.",
     long_description=long_description,
+    long_description_content_type='text/markdown',
     author="torshind",
     license="BSD 3-Clause",
     packages=find_packages(exclude=["tests.*", "tests"]),
@@ -28,5 +29,6 @@ setup(
     keywords="pandas, chatgpt",
     install_requires=[
         "openai",
+        "hugchat",
     ],
 )
